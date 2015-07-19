@@ -10,7 +10,11 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
   gem 'pry'
+  gem 'shoulda-matchers', require: false
   gem 'spring'
   gem 'rspec-rails'
   gem 'web-console', '~> 2.0'
