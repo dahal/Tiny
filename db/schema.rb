@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20150719211430) do
   end
 
   create_table "short_urls", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "long_url_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
