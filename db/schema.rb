@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150719202722) do
   enable_extension "plpgsql"
 
   create_table "long_urls", force: :cascade do |t|
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
