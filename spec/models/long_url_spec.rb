@@ -8,4 +8,8 @@ describe LongUrl do
     it { expect(valid_url.url).to match(/^(ftp|ftps|http|https):\/\/([a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+.*)$/) }
     it { expect{ FactoryGirl.create(:long_url, url: 'google.com') }.to raise_error(ActiveRecord::RecordInvalid) }
   end
+
+  context 'associations' do
+    it { is_expected.to have_many(:short_urls).dependent(:destroy) }
+  end
 end
