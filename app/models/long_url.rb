@@ -17,11 +17,11 @@ class LongUrl < ActiveRecord::Base
     multiline: true,
     on: :create
 
-  after_save :shortify
+  after_create :shortify
 
   private
 
   def shortify
-    short_urls.create
+    short_urls.create(uri: SecureRandom.urlsafe_base64(4))
   end
 end
