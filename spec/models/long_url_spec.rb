@@ -11,7 +11,7 @@
 require 'rails_helper'
 
 describe LongUrl do
-  let(:valid_url) { FactoryGirl.create(:long_url) }
+  subject(:valid_url) { FactoryGirl.create(:long_url) }
 
   context 'validations' do
     it { is_expected.to validate_presence_of(:url) }
@@ -21,5 +21,13 @@ describe LongUrl do
 
   context 'associations' do
     it { is_expected.to have_many(:short_urls).dependent(:destroy) }
+  end
+
+  context 'callbacks' do
+    it { is_expected.to callback(:shortify).after(:save) }
+
+    context '#shortify' do
+      it { expect { subject }.to change{ ShortUrl.count }.by(1) }
+    end
   end
 end

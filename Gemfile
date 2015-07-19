@@ -16,6 +16,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry'
   gem 'rubocop', require: false
+  gem 'shoulda-callback-matchers'
   gem 'shoulda-matchers', require: false
   gem 'spring'
   gem 'rspec-rails'
