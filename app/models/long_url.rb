@@ -4,4 +4,6 @@ class LongUrl < ActiveRecord::Base
                       with: /^(ftp|ftps|http|https):\/\/([a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+.*)$/,
                       multiline: true,
                       on: :create
+
+  has_many :short_urls, dependent: :destroy
 end
