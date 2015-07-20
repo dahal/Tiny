@@ -10,6 +10,8 @@
 #
 
 class ShortUrl < ActiveRecord::Base
+  include GenerateMultipleUris
+
   validates :uri, :long_url_id, presence: true
   validates :uri, uniqueness: true
   belongs_to :long_url

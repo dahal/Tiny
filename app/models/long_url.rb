@@ -22,6 +22,6 @@ class LongUrl < ActiveRecord::Base
   private
 
   def shortify
-    short_urls.create(uri: SecureRandom.urlsafe_base64(4))
+    ShortUrl.delay.generate!(self.id)
   end
 end
