@@ -4,6 +4,6 @@ class LongUrlsController < ApplicationController
   end
   
   def create
-    
+    redirect_to :long_urls
   end
 end
