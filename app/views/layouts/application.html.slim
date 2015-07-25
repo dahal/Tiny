@@ -1,0 +1,10 @@
+doctype 5
+html
+  head
+    title URL Shortener
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css', :media => 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = yield
+    
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
