@@ -9,6 +9,8 @@
 #
 
 class LongUrl < ActiveRecord::Base
+  include GetUrlDetails
+
   has_many :short_urls, dependent: :destroy
 
   validates :url, presence: true
@@ -17,11 +19,15 @@ class LongUrl < ActiveRecord::Base
     multiline: true,
     on: :create
 
-  after_create :shortify
+  after_create :shortify, :get_url_details
 
   private
 
   def shortify
     ShortUrl.delay.generate!(self.id)
+  end
+
+  def get_url_details
+    LongUrl.delay.url_details(self.id)
   end
 end

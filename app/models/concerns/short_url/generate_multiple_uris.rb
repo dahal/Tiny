@@ -4,7 +4,12 @@ class ShortUrl
 
     module ClassMethods
       def generate!(long_url_id)
-        self.create(uri: generate_new_uri, long_url_id: long_url_id)
+        long_url = LongUrl.find(long_url_id)
+        possible_uri = Generate.possibles(generate_new_uri)
+
+        possible_uri.each do |uri|
+          long_url.short_urls.create(uri: uri)
+        end
       end
 
       private

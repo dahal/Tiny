@@ -10,6 +10,6 @@
 
 FactoryGirl.define do
   factory :long_url do
-    url 'http://example.com'
+    url 'http://google.com'
   end
 end

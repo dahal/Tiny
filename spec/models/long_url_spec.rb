@@ -25,9 +25,10 @@ describe LongUrl do
 
   context 'callbacks' do
     it { is_expected.to callback(:shortify).after(:create) }
+    it { is_expected.to callback(:get_url_details).after(:create) }
 
     context '#shortify' do
-      it { expect { subject }.to change{ ShortUrl.count }.by(1) }
+      it { expect { subject }.to change{ ShortUrl.count } }
     end
   end
 end

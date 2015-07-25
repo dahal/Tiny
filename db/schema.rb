@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720021030) do
+ActiveRecord::Schema.define(version: 20150723010000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(version: 20150720021030) do
 
   create_table "long_urls", force: :cascade do |t|
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "description"
+    t.string   "thumbnail"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "short_urls", force: :cascade do |t|
