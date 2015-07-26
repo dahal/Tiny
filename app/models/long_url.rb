@@ -18,16 +18,18 @@ class LongUrl < ActiveRecord::Base
     with: /^(ftp|ftps|http|https):\/\/([a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+.*)$/,
     multiline: true,
     on: :create
+  
+  default_scope  { order(created_at: :desc) }
 
-  after_create :shortify, :get_url_details
+  after_create :get_url_details, :shortify
 
   private
 
   def shortify
-    ShortUrl.delay.generate!(self.id)
+    ShortUrl.delay(priority: 1).generate!(self.id)
   end
 
   def get_url_details
-    LongUrl.delay.url_details(self.id)
+    LongUrl.delay(priority: 0).url_details(self.id)
   end
 end
