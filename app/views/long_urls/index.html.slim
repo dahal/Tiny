@@ -44,13 +44,12 @@
         .col-md-3.col-sm-4.col-xs-12
           .panel.panel-default
             .panel-body
-              img.img-responsive.img-panel.center-block src= url.thumbnail
+              img.img-responsive.img-panel.center-block src="#{url.thumbnail || 'https://placehold.it/300X100'}"
               hr
               h5.underline.text-center
                 a href="http://#{shortifed(url)}" target="_blank"
                   = shortifed(url)
-              p
-               = "<b>#{truncate(url.title, length: 10, escape: false)}</b>:-  #{truncate(url.description, length: 50)}".html_safe
+              ="<b>#{truncate(url.title, length: 10, escape: false) || '<p class="empty">&nbsp;</p>'}</b> #{truncate(url.description, length: 50) || '<p class="empty">&nbsp;</p>'}".html_safe
   footer.footer.text-center
     .container
     small

@@ -14,13 +14,6 @@
    *= require_self
    */
 
-/*.mt-100 {
-  margin-top: 100px;
-}
-.mb-100 {
-  margin-bottom: 100px;
-}*/
-
 .icon {
   width: 32px;
   height: 32px;
@@ -82,4 +75,11 @@
 
 .underline {
   text-decoration: underline;
+}
+
+p.empty {
+  color: none;
+  background-color: #EEEEEE;
+  border-radius: 3px;
+  margin: 2px;
 }
