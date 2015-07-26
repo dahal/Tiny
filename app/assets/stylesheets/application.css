@@ -103,3 +103,12 @@
   position:relative;
   display: block;
 }
+
+.big-error-text {
+  font-size: 300px;
+}
+
+.medium-error-text {
+  font-size: 100px;
+  line-height: 1;
+}
