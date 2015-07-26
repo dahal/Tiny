@@ -1,6 +1,6 @@
 class LongUrlsController < ApplicationController
   def index
-    
+    @urls = LongUrl.all
   end
   
   def create

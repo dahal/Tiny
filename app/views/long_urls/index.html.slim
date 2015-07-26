@@ -1,1 +1,60 @@
-p Hello
+.wrapper
+  header.header
+    .container
+      .row
+        .col-md-5.col-md-offset-1
+          .content
+            .pull-middle
+              h1.page-header.text-center Shorten your long url
+              p.lead.text-center Type, or copy/paste your long url here below.
+              .panel.panel-default
+                .panel-body
+                  form action="#" role="form"
+                    .input-group
+                      input.input-lg.form-control placeholder=("http://longurl.com") required="" type="url" /
+                      span.input-group-btn
+                        button.btn.btn-success.btn-circle type="submit" SHORTEN
+        .col-md-5.col-md-offset-1
+          .content
+            .pull-middle
+              h2.h1.page-header Why use us ?
+              ul.media-list
+                li.media
+                  a.media-left href="#"
+                    span.glyphicon.glyphicon-cloud.icon.text-success
+                  .media-body
+                    h3.media-heading Corrects human error.
+                    p One thing for sure, it auto corrects human errors.
+                li.media
+                  a.media-left href="#"
+                    span.glyphicon.glyphicon-lock.icon.text-success
+                  .media-body
+                    h3.media-heading Cloud, Cloud, Cloud.
+                    p Like all the cool kids, its on the cloud.
+                li.media
+                  a.media-left href="#"
+                    span.glyphicon.glyphicon-user.icon.text-success
+                  .media-body
+                    h3.media-heading Secure.
+                    p If you want your url to be secure, why shorten it ?
+  section.section
+    .container
+      h1.page-header.text-center Recent URLs
+      - @urls.each do |url|
+        .col-md-3.col-sm-4.col-xs-12
+          .panel.panel-default
+            .panel-body
+              img.img-responsive.img-panel.center-block src= url.thumbnail
+              hr
+              h5.underline.text-center
+                a href="http://#{shortifed(url)}" target="_blank"
+                  = shortifed(url)
+              p
+               = "<b>#{truncate(url.title, length: 10, escape: false)}</b>:-  #{truncate(url.description, length: 50)}".html_safe
+  footer.footer.text-center
+    .container
+    small
+      | Created with all the
+      span.glyphicon.glyphicon-heart.text-danger
+      | in the world by
+      a href="http://github.com/dahal/Tiny" target="_blank"  Puru Dahal
