@@ -10,7 +10,7 @@ class LongUrlsController < ApplicationController
 
     respond_to do |format|
       if @url.save
-        format.html { redirect_to root_path, notice: 'URL was successfully shortened!' }
+        format.html { redirect_to root_path, flash: { success: 'URL successfully shortened!' } }
       else
         format.html { render :new }
       end

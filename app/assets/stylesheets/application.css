@@ -83,25 +83,13 @@
   font-size: 18px;
 }
 
-.help-block {
-  padding-left: 30px;
-}
-
 #error-message {
+  padding-left: 30px;
   color: #FF0039;
 }
 
 .center {
   text-align: center;
-}
-
-.woo {
-  max-height: 100px;
-}
-
-.panel {
-  position:relative;
-  display: block;
 }
 
 .big-error-text {

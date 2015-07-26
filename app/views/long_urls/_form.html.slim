@@ -6,6 +6,8 @@
       placeholder: 'http://longurl.com',
       value: @url.url,
       error_html: { id: 'error-message'}
-      
+    
+    = render 'flash'
+    
     span.input-group-btn
       = f.submit 'SHORTEN', class: 'btn btn-success btn-circle'
