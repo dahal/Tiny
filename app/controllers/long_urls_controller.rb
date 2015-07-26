@@ -6,12 +6,23 @@ class LongUrlsController < ApplicationController
   end
   
   def create
-    require "pry"; binding.pry
-    redirect_to :long_urls
+    @url = LongUrl.new(url_params)
+
+    respond_to do |format|
+      if @url.save
+        format.html { redirect_to root_path, notice: 'URL was successfully shortened!' }
+      else
+        format.html { render :new }
+      end
+    end
   end
   
   private
   def load_new_url
     @url = LongUrl.new
+  end
+  
+  def url_params
+    params.require(:long_url).permit(:url)
   end
 end

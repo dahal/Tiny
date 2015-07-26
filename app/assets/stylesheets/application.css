@@ -77,9 +77,29 @@
   text-decoration: underline;
 }
 
-p.empty {
+.empty {
   color: none;
   background-color: #EEEEEE;
-  border-radius: 3px;
-  margin: 2px;
+  font-size: 18px;
+}
+
+.help-block {
+  padding-left: 30px;
+}
+
+#error-message {
+  color: #FF0039;
+}
+
+.center {
+  text-align: center;
+}
+
+.woo {
+  max-height: 100px;
+}
+
+.panel {
+  position:relative;
+  display: block;
 }
