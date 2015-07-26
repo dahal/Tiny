@@ -1,5 +1,5 @@
 class LongUrl
-  module GetUrlDetails
+  module UrlDetails
     extend ActiveSupport::Concern
 
     module ClassMethods

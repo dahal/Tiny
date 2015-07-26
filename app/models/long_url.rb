@@ -9,7 +9,7 @@
 #
 
 class LongUrl < ActiveRecord::Base
-  include GetUrlDetails
+  include UrlDetails
 
   has_many :short_urls, dependent: :destroy
 
