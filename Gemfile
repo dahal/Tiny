@@ -12,8 +12,13 @@ gem 'slim'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'annotate'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'

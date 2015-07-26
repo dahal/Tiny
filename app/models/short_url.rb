@@ -17,6 +17,6 @@ class ShortUrl < ActiveRecord::Base
   belongs_to :long_url
   
   def to_s
-    "hello.com/#{uri}"
+    "#{ENV['DOMAIN'] || 'localhost:3000'}/#{uri}"
   end
 end
