@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20150723010000) do
 
   create_table "long_urls", force: :cascade do |t|
     t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "title"
     t.string   "description"
     t.string   "thumbnail"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "short_urls", force: :cascade do |t|

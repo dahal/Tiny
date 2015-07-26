@@ -21,15 +21,27 @@ class LongUrl < ActiveRecord::Base
   
   default_scope  { order(created_at: :desc) }
 
-  after_create :get_url_details, :shortify
+  after_create :shortify, :get_url_details
 
   private
 
   def shortify
-    ShortUrl.delay(priority: 1).generate!(self.id)
+    uri = generate_new_uri
+    self.short_urls.create(uri: uri)
+    
+    ShortUrl.delay(priority: 1).generate_all_possibles!(self.id, uri)
   end
 
   def get_url_details
     LongUrl.delay(priority: 0).url_details(self.id)
+  end
+  
+  private
+  
+  def generate_new_uri
+    loop do
+      uri = SecureRandom.urlsafe_base64(4)
+      return uri if !ShortUrl.exists?(uri: uri)
+    end
   end
 end
